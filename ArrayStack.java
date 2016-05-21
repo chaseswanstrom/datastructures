@@ -1,5 +1,6 @@
 import java.util.*;
- 
+@SuppressWarnings("unchecked")
+
 public class ArrayStack <T> {
     private T container[];
     private int top;
@@ -12,6 +13,7 @@ public class ArrayStack <T> {
  
     public ArrayStack (int initSize)
     {
+
         container = (T[]) new Object [initSize];
         top = -1;
     }
@@ -61,5 +63,23 @@ public class ArrayStack <T> {
         for (int i = 0; i <= top; i++)
             t[i] = container[i];
         container = t;
+    }
+
+    public static void main(String[] args) {
+
+        ArrayStack<Character> s = new ArrayStack<>();
+        s.push('C');
+        s.push('H');
+        s.push('A');
+        s.push('S');
+        s.push('E');
+        
+        String reverse = "";
+        while (s.isEmpty() == false) {
+            reverse += s.pop();
+        }
+
+        System.out.println(reverse);
+
     }
 }
